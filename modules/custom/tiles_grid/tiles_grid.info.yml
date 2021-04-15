@@ -1,0 +1,9 @@
+name: Tiles Grid
+type: module
+core: 8.x
+description: Home page tiles config and theming
+package: 'Custom'
+dependencies:
+  - entityqueue:entityqueue
+  - youtube:youtube
+  - colorbox_simple_load:colorbox_simple_load

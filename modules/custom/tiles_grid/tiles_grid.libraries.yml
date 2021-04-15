@@ -1,0 +1,14 @@
+isotope:
+  js:
+    js/isotope.pkgd.min.js: { minified: true }
+    js/script.js: {}
+  dependencies:
+    - core/jquery
+tilecss:
+  css:
+    theme:
+      css/style.css: {}
+icons:
+  css:
+    theme:
+      flaticon/font/flaticon.css: {}  

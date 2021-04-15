@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @file
+ * Allows users to select tile type and populate respective fields.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+function tiles_grid_form_alter(&$form, FormStateInterface $form_state, $form_id){
+    if( $form_id == "node_tile_form" ||  $form_id == "node_tile_edit_form"){
+        // Only show this field when the 'type article' checkbox is enabled.        
+        $form['field_article']['#states'] = [
+            'visible' => [
+              ':input[name="field_type"]' => [
+                'value' => 1,
+              ],
+            ],
+        ];
+        // Only show this field when the 'type video' checkbox is enabled.
+        $form['field_youtube']['#states'] = [
+            'visible' => [
+              ':input[name="field_type"]' => [
+                'value' => 2,
+              ],
+            ],
+        ];
+        $form['field_image']['#states'] = [
+            'invisible' => [
+              ':input[name="field_type"]' => [
+                'value' => 2,
+              ],
+            ],
+        ];                      
+        // Only show this field when the 'type informative' checkbox is enabled.
+        $form['field_link']['#states'] = [
+            'visible' => [
+              ':input[name="field_type"]' => [
+                'value' => 3,
+              ],
+            ],
+        ];                            
+    }        
+}
+
+/**
+ * Implements hook_install().
+ */
+function tiles_grid_install() {
+  // Set home page of custom route.
+  \Drupal::configFactory()->getEditable('system.site')
+    ->set('page.front', '/home')
+    ->save();
+}
+
+/**
+ * Implements hook_theme().
+ */
+function tiles_grid_theme($existing, $type, $theme, $path) {
+  return [
+    'tile' => [
+      'variables' => ['tiles' => NULL],
+    ],
+  ];
+}

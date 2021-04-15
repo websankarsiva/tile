@@ -1,0 +1,40 @@
+<div class="button-group filter-button-group">
+  <button data-filter="*">show all</button>
+  <button data-filter=".people">People</button>
+  <button data-filter=".food">Food</button>
+  <button data-filter=".planet">Planet</button>  
+</div>
+
+<div class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
+ {% for tile in tiles %}
+   <div class="grid-item {% for tag in tile.field_tags %} {{ tag }}  {% endfor %}">
+   {# Article Tile#}
+   {% if tile.type == 1 %} 
+   <a href="{{ path('entity.node.canonical', {'node': tile.field_article}) }}"> {{ tile.field_image|render  }} </a>   
+    <h2><a href="{{ path('entity.node.canonical', {'node': tile.field_article}) }}">{{ tile.title }}</a>  </h2>    
+   <a href="{{ path('entity.node.canonical', {'node': tile.field_article}) }}">{{ tile.body|raw }} </a>
+  
+   {% endif %}
+   {# Video Tile #}   
+   {% if tile.type == 2 %} 
+    <img src="{{ file_url(tile.field_youtube.thumb) }}" style="width:250px;height:250px" alt="image" >
+    <a class="colorbox-load" href="{{ tile.field_youtube.url }}"><span class="youtubeicon"> <i class="flaticon flaticon-play"></i><span class="text-white">Video</span></span></a>   
+   <h2>{{ tile.title }}</h2>    
+   {{ tile.body|raw }}
+      
+   {% endif %}
+   {# Informative Tile #}   
+   {% if tile.type == 3 %} 
+   <a href="{{ tile.field_link.0.uri }}"> {{ tile.field_image|render  }} </a>
+    <h2><a href="{{ tile.field_link.0.uri }}">{{ tile.title }} </a></h2>          
+    <a href="{{ tile.field_link.0.uri }}"> {{ tile.body|raw }} </a>   
+   {% endif %}      
+  <div class="miwrap">
+    {% for tag in tile.field_tags %}
+     <span class="mibg"> <i class="flaticon flaticon-{{ tag }}"></i></span>
+   {% endfor %}
+   </div>
+   </div>
+  {% endfor %}
+
+</div>

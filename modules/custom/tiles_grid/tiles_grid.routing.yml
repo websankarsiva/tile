@@ -1,0 +1,7 @@
+tiles_grid.home:
+  path: '/home'
+  defaults:
+    _controller: '\Drupal\tiles_grid\Controller\HomeController::content'
+    _title: 'Dofinity'
+  requirements: 
+    _permission: 'access content'    

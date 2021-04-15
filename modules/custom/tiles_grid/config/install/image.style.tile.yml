@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: tile
+label: tile
+effects:
+  eb909fa4-0f14-423f-b60a-8bae982268cb:
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 250
+      height: 250
+      anchor: center-center

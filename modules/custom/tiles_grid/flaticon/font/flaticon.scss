@@ -1,0 +1,41 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?ec908b079579c2b311649a1add46c568") format("truetype"),
+url("./flaticon.woff?ec908b079579c2b311649a1add46c568") format("woff"),
+url("./flaticon.woff2?ec908b079579c2b311649a1add46c568") format("woff2"),
+url("./flaticon.eot?ec908b079579c2b311649a1add46c568#iefix") format("embedded-opentype"),
+url("./flaticon.svg?ec908b079579c2b311649a1add46c568#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "food": "\f101",
+    "people": "\f102",
+    "planet": "\f103",
+    "play": "\f104",
+);
+
+.flaticon-food:before {
+    content: map-get($flaticon-map, "food");
+}
+.flaticon-people:before {
+    content: map-get($flaticon-map, "people");
+}
+.flaticon-planet:before {
+    content: map-get($flaticon-map, "planet");
+}
+.flaticon-play:before {
+    content: map-get($flaticon-map, "play");
+}
