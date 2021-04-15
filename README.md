@@ -10,3 +10,11 @@ Featured article or info or video contents can be added as grid layout on home p
  - Login with content manager credential and add tile contents. 
  - Please select type of tile so that respective fields will be shown
  - Once tile content is added, please add to tile entity queue.
+
+## Technical Implementation
+
+ - Custom front page is created by custom controller and loading a tile entity queue and fetching the tile and artcile nodes from the queue.
+ - Rendred template variables on custom template with Isotope library
+ - YouTube video is being played using colorbox module on clicking play button
+ - Flaticon is used and icon is generated based on term name
+ - Tile layout is validated and designed by tile field type value
