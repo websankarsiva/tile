@@ -78,7 +78,7 @@ class HomeController extends ControllerBase {
         //Load article tag for article reference tile
         $article = $this->entityTypeManager()->getStorage('node')->load($tile->get('field_article')->target_id);        
         foreach($article->field_tags as $tagentity){
-          $tags[] = $tagentity->entity->getName();
+          $tags[] = strtolower($tagentity->entity->getName());
         }  
       } else {
         //Tile tag
